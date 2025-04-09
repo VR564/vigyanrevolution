@@ -1,0 +1,117 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vigyan Revolution</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #f4f4f4;
+    }
+    header {
+      background-color: #222;
+      color: #fff;
+      text-align: center;
+      padding: 1rem 0;
+    }
+    header img {
+      width: 80px;
+      height: auto;
+    }
+    h1 {
+      margin: 0.5rem 0 0;
+    }
+    .container {
+      padding: 20px;
+    }
+    details {
+      margin-bottom: 10px;
+      background: #fff;
+      border-radius: 8px;
+      padding: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    summary {
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .subject-link, .chapter-link {
+      display: block;
+      margin: 5px 0 5px 20px;
+      color: #007BFF;
+      text-decoration: none;
+    }
+    footer {
+      background-color: #222;
+      color: #fff;
+      text-align: center;
+      padding: 10px;
+      position: fixed;
+      width: 100%;
+      bottom: 0;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="VR-logo.png" alt="VR Logo">
+    <h1>Vigyan Revolution</h1>
+  </header>  <div class="container">
+    <!-- Class Sections -->
+    <!-- Template for each class -->
+    <script>
+      const classData = ["Class 6", "Class 7", "Class 8", "Class 9", "Class 10", "Class 11", "Class 12"];
+      const videoLinks = [
+        { text: "L-1", url: "https://www.youtube.com/live/ozJC8YrqAr0?si=Kvna9Q8Ba5zMUW8B" },
+        { text: "L-2", url: "https://www.youtube.com/live/bL4I7juq7j0?si=kEUas3WbAbPWKUrZ" },
+        { text: "L-3", url: "https://www.youtube.com/live/0Fx3Ke_QccA?si=bpS8pFksEUHaW_Ai" },
+        { text: "L-4", url: "https://www.youtube.com/live/m3suKiCPjpU?si=7OUbXFpmD_d37DyN" }
+      ];
+    </script><div id="class-sections"></div>
+
+<script>
+  const container = document.getElementById('class-sections');
+
+  classData.forEach(cls => {
+    const classDetails = document.createElement('details');
+    const classSummary = document.createElement('summary');
+    classSummary.textContent = cls;
+    classDetails.appendChild(classSummary);
+
+    ["Sanskrit", "Physics", "Chemistry", "Mathematics", "SST", "Biology", "Notice", "DPP", "Sample Paper"].forEach(subject => {
+      const subjectDetails = document.createElement('details');
+      const subjectSummary = document.createElement('summary');
+      subjectSummary.textContent = subject;
+      subjectDetails.appendChild(subjectSummary);
+
+      if (subject === "Physics") {
+        const chapterDetails = document.createElement('details');
+        const chapterSummary = document.createElement('summary');
+        chapterSummary.textContent = "Chapter 1: Electricity Advanced";
+        chapterDetails.appendChild(chapterSummary);
+
+        videoLinks.forEach(link => {
+          const a = document.createElement('a');
+          a.href = link.url;
+          a.textContent = link.text;
+          a.className = 'chapter-link';
+          a.target = '_blank';
+          chapterDetails.appendChild(a);
+        });
+
+        subjectDetails.appendChild(chapterDetails);
+      }
+
+      classDetails.appendChild(subjectDetails);
+    });
+
+    container.appendChild(classDetails);
+  });
+</script>
+
+  </div>  <footer>
+    Powered by DEEPU RAJ | <a href="https://youtube.com/@vigyanrevolution?si=2CYlcbmV034Qj6Yn" style="color: #4dd0e1">YouTube Channel</a>
+  </footer>
+</body>
+</html>
